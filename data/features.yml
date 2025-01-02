@@ -1,0 +1,9 @@
+features:
+  - title: "Consultas Globales y Locales"
+    description: "Flexibilidad para ejecutar consultas tanto en la nube como en los nodos del borde, optimizando el rendimiento y reduciendo la latencia."
+  
+  - title: "Almacenamiento Híbrido"
+    description: "Combina el poder de S3 y DuckDB en la nube con SQLite en los nodos del borde para un almacenamiento eficiente y escalable."
+    
+  - title: "Sincronización Inteligente"
+    description: "Movimiento automático de datos entre los nodos del borde y la nube según patrones de uso y políticas configurables."

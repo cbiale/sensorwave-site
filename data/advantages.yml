@@ -1,0 +1,9 @@
+advantages:
+  - title: "Alto Rendimiento"
+    description: "Optimizado para consultas rápidas tanto en escenarios locales como distribuidos, con cache inteligente y estrategias de replicación."
+    
+  - title: "Seguridad Robusta"
+    description: "Encriptación de datos en reposo y en tránsito, con políticas de acceso granulares y auditoría completa."
+    
+  - title: "Fácil Integración"
+    description: "APIs REST y SQL estándar para una integración sencilla con sus aplicaciones existentes y herramientas de análisis."

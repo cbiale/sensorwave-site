@@ -1,0 +1,13 @@
+
+{{/* layouts/partials/advantages.html */}}
+<section class="features">
+  <h2 class="section-title">Ventajas Técnicas</h2>
+  <div class="features-grid">
+    {{ range .Site.Data.advantages.advantages }}
+    <div class="feature-card">
+      <h3>{{ .title }}</h3>
+      <p>{{ .description }}</p>
+    </div>
+    {{ end }}
+  </div>
+</section>

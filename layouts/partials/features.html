@@ -1,0 +1,14 @@
+
+{{/* layouts/partials/features.html */}}
+<section class="features">
+  <h2 class="section-title">Características Principales</h2>
+  <div class="features-grid">
+    {{ range .Site.Data.features.features }}
+    <div class="feature-card">
+      <h3>{{ .title }}</h3>
+      <p>{{ .description }}</p>
+    </div>
+    {{ end }}
+  </div>
+</section>
+

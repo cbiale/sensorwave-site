@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SensorWave - Base de Datos Distribuida</title>
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --secondary-color: #1e293b;
+            --accent-color: #3b82f6;
+            --text-color: #334155;
+            --light-bg: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+        
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--light-bg);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.1) 0%, transparent 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #60a5fa, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #e2e8f0;
+        }
+
+        .features {
+            padding: 4rem 2rem;
+            background: var(--light-bg);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .feature-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .architecture {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .architecture h2 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .diagram {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .cta {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.1) 0%, transparent 100%);
+        }
+
+        .button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+
+        .button:hover {
+            background: transparent;
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>SensorWave</h1>
+            <p>
+                Descubre cómo nuestra solución lleva tu IoT al siguiente nivel con consultas distribuidas, almacenamiento eficiente y escalabilidad en la nube
+            </p>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2 class="section-title">Características principales</h2>
+        <div class="features-grid">
+
+            <div class="feature-card">
+                <h3>Almacenamiento híbrido inteligente</h3>
+                <p>Combina almacenamiento local ligero en el borde con SQLite y almacenamiento duradero en la nube con Parquet en MinIO. Con políticas configurables, los datos se mantienen accesibles de forma eficiente en el borde y se migran automáticamente a la nube, asegurando optimización y disponibilidad a largo plazo.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Procesamiento local y analítico potente</h3>
+                <p>Realiza decisiones en tiempo real en el borde con SQLite y aprovecha DuckDB en la nube para análisis masivo. Esta combinación optimiza los recursos en nodos limitados mientras permite consultas analíticas avanzadas, maximizando el rendimiento en todos los niveles.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Sistema de consultas híbrido y distribuido</h3>
+                <p>Accede rápidamente a datos recientes en SQLite y ejecuta consultas analíticas complejas en la nube con DuckDB. Con capacidades federadas, combina datos del borde y la nube para obtener insights en tiempo real y análisis históricos.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Arquitectura y gestión de datos optimizada</h3>
+                <p>Almacena datos históricos en formato Parquet con compresión avanzada para series temporales y optimiza el ciclo de vida de los datos. La migración automática entre el borde y la nube asegura una gestión eficiente de almacenamiento y recursos.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Escalabilidad y disponibilidad adaptativa</h3>
+                <p>Opera continuamente en el borde con SQLite y escala horizontalmente en la nube con DuckDB y MinIO. Con capacidades de replicación y distribución configurables, tu infraestructura IoT crece de manera robusta y sin interrupciones.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Compatibilidad y optimización de recursos</h3>
+                <p>Integra sensores y actuadores fácilmente con soporte para MQTT, CoAP y HTTP. Al mismo tiempo, minimiza el consumo de recursos en el borde y maximiza el análisis en la nube gracias al almacenamiento eficiente y la compresión avanzada.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="architecture">
+        <h2>Arquitectura distribuida</h2>
+        <div class="diagram">
+            <img src="/api/placeholder/800/400" alt="Diagrama de Arquitectura" />
+        </div>
+        <p>Nuestra arquitectura distribuida permite un balance óptimo entre rendimiento local y capacidades globales, facilitando el procesamiento de datos donde tenga más sentido.</p>
+    </section>
+
+    <!--section class="features">
+        <h2 class="section-title">Ventajas Técnicas</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Alto Rendimiento</h3>
+                <p>Optimizado para consultas rápidas tanto en escenarios locales como distribuidos, con cache inteligente y estrategias de replicación.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Seguridad Robusta</h3>
+                <p>Encriptación de datos en reposo y en tránsito, con políticas de acceso granulares y auditoría completa.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Fácil Integración</h3>
+                <p>APIs REST y SQL estándar para una integración sencilla con sus aplicaciones existentes y herramientas de análisis.</p>
+            </div>
+        </div>
+    </section-->
+
+    <section class="cta">
+        <h2>Comience Ahora</h2>
+        <p>Descubra cómo SensorWave puede transformar su sistema IoT</p>
+        <a href="/docs" class="button">Explorar Documentación</a>
+    </section>
+</body>
+</html>
